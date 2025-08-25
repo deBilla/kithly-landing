@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kithly - Where Family Stories Live</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Colors matching your React Native design */
+            --primary: #8b5cf6;
+            --primary-dark: #7c3aed;
+            --primary-light: #ddd6fe;
+            --primary-bg: #f5f3ff;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --bg-primary: #f9fafb;
+            --bg-white: #ffffff;
+            --border: #e5e7eb;
+            --border-light: #f3f4f6;
+            --shadow: rgba(0, 0, 0, 0.05);
+            --shadow-md: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header matching your app header style */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo container matching your app style */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Button styles matching your React Native buttons */
+        .btn {
+            border-radius: 16px;
+            padding: 16px 24px;
+            border: none;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary);
+            border: 2px solid var(--primary-light);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-bg);
+            border-color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: var(--bg-primary);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .hero-text .highlight {
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Phone mockup matching your app design */
+        .phone-mockup {
+            width: 300px;
+            height: 600px;
+            background: #1f2937;
+            border-radius: 40px;
+            padding: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: var(--bg-primary);
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .mock-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-light);
+            margin-bottom: 20px;
+        }
+
+        .mock-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mock-logo-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .mock-card {
+            background: var(--primary);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .mock-question {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .mock-family-card {
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .family-member {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+        }
+
+        .family-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 16px;
+            background: var(--primary-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .status-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 8px;
+            background: var(--success);
+            margin-left: auto;
+        }
+
+        .status-pending {
+            background: var(--border);
+        }
+
+        /* Floating elements animation */
+        .floating-hearts {
+            position: absolute;
+            top: 10%;
+            right: -10%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-mic {
+            position: absolute;
+            bottom: 10%;
+            left: -10%;
+            opacity: 0.1;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        /* Card styles matching your design */
+        .card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 2px 10px var(--shadow);
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px var(--shadow-md);
+        }
+
+        .card-gradient {
+            background: var(--primary);
+            color: white;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-title.white {
+            color: white;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Section styles */
+        .section {
+            padding: 80px 24px;
+        }
+
+        .section-white {
+            background: var(--bg-white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .section-header .highlight {
+            color: var(--primary);
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Features grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 24px;
+        }
+
+        .feature h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .feature p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Steps section */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 24px;
+        }
+
+        .step h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .step p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 48px 24px 24px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 16px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .footer-section a {
+            color: var(--text-light);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid #374151;
+            color: var(--text-light);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(180deg); }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-slide-in {
+            animation: slideIn 0.6s ease-out forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .phone-mockup {
+                width: 250px;
+                height: 500px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="logo-container">
+                <div class="logo-icon">♥</div>
+                <div class="logo-text">Kithly</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#download" class="btn btn-primary">Get Started</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-hearts" style="font-size: 48px; color: var(--primary);">♥</div>
+        <div class="floating-mic" style="font-size: 48px; color: var(--primary);">🎤</div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Where <span class="highlight">Family Stories</span> Live Forever</h1>
+                <p>Transform everyday conversations into treasured family memories. Kithly helps families stay connected through personal audio stories that bring generations together, one voice at a time.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#download" class="btn btn-primary">Start Your Story</a>
+                    <a href="#demo" class="btn btn-secondary">Try Demo</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <span>📱 iOS & Android</span>
+                    <span>🎙️ 50k+ Stories Shared</span>
+                    <span>👥 Family-First Privacy</span>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <!-- Mock Header -->
+                        <div class="mock-header">
+                            <div class="mock-logo">
+                                <div class="mock-logo-icon">♥</div>
+                                <span style="font-weight: 700; font-size: 14px;">Kithly</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Mock Today's Question Card -->
+                        <div class="mock-card">
+                            <div style="font-size: 10px; margin-bottom: 8px; opacity: 0.8;">TODAY'S QUESTION</div>
+                            <div class="mock-question">
+                                What's a favorite family tradition that always makes you smile?
+                            </div>
+                        </div>
+                        
+                        <!-- Mock Family Status -->
+                        <div class="mock-family-card">
+                            <div style="font-size: 12px; font-weight: 700; margin-bottom: 12px; color: var(--text-primary);">Family Members</div>
+                            <div class="family-member">
+                                <div class="family-avatar">👩‍🦳</div>
+                                <span style="font-size: 10px; flex: 1;">Mom</span>
+                                <div class="status-dot"></div>
+                            </div>
+                            <div class="family-member">
+                                <div class="family-avatar">👨‍🦲</div>
+                                <span style="font-size: 10px; flex: 1;">Dad</span>
+                                <div class="status-dot"></div>
+                            </div>
+                            <div class="family-member">
+                                <div class="family-avatar">👤</div>
+                                <span style="font-size: 10px; flex: 1;">You</span>
+                                <div class="status-dot status-pending"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section section-white" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Built for <span class="highlight">Families</span></h2>
+                <p>Every feature thoughtfully designed to bring your family closer together through the intimate power of voice and storytelling.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="card">
+                    <div class="feature-icon">🎙️</div>
+                    <h3>Daily Conversation Starters</h3>
+                    <p>Thoughtfully crafted questions delivered daily that spark meaningful conversations and help family members share their thoughts, dreams, and experiences authentically.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="feature-icon">🏡</div>
+                    <h3>Private Family Circle</h3>
+                    <p>Your stories stay safe within your family circle. Create an intimate space where everyone can share without judgment, building deeper connections through vulnerability.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="feature-icon">📱</div>
+                    <h3>One-Tap Recording</h3>
+                    <p>Simple recording that works for all ages and technical abilities. Just tap, speak your heart, and share. No complicated setup or learning curve required.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="feature-icon">🎵</div>
+                    <h3>Automatic Family Podcast</h3>
+                    <p>Your family's responses are beautifully compiled into personal podcast episodes you can treasure forever. Listen during commutes, walks, or quiet moments.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="feature-icon">💝</div>
+                    <h3>Legacy Preservation</h3>
+                    <p>Build a growing archive of family memories and voices that can be cherished for generations. Your stories, your heritage, preserved in your own voices.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Distance-Proof Connection</h3>
+                    <p>Perfect for families spread across cities, states, or countries. Bridge any distance with the intimacy and warmth that only voice can provide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>Simple as <span class="highlight">1-2-3</span></h2>
+                <p>Creating lasting family memories has never been easier or more meaningful.</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Receive Your Daily Prompt</h3>
+                    <p>Every day, your family gets a thoughtfully crafted question designed to spark genuine sharing and meaningful connection between all family members.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Share Your Heart</h3>
+                    <p>Take a moment to record your thoughts, feelings, or memories in your own voice. Share as much or as little as feels right - authenticity matters more than length.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Listen & Connect</h3>
+                    <p>Once everyone responds, your personalized family podcast episode is ready. Listen together or individually, creating moments of connection that last forever.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section" id="download">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Start Your Family's Story Today</h2>
+                <p>Join thousands of families already creating lasting memories and stronger bonds with Kithly.</p>
+                <div class="cta-buttons">
+                    <a href="#ios" class="btn btn-white">📱 Download for iOS</a>
+                    <a href="#android" class="btn btn-outline">🤖 Download for Android</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Kithly</h3>
+                <p>Bringing families together through the power of voice, story, and genuine human connection.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Product</h3>
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#download">Download</a>
+                <a href="#demo">Try Demo</a>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <a href="#help">Help Center</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <a href="#twitter">Twitter</a>
+                <a href="#instagram">Instagram</a>
+                <a href="#facebook">Facebook</a>
+                <a href="#blog">Blog</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Kithly. Made with ♥ for families everywhere.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-slide-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe cards and steps for animation
+        document.querySelectorAll('.card, .step').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced button interactions
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+            
+            button.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                `;
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add ripple animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
