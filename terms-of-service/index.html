@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Kithly</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8b5cf6;
+            --primary-dark: #7c3aed;
+            --primary-light: #ddd6fe;
+            --primary-bg: #f5f3ff;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --bg-primary: #f9fafb;
+            --bg-white: #ffffff;
+            --border: #e5e7eb;
+            --border-light: #f3f4f6;
+            --shadow: rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        .header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
+            padding: 16px 0;
+        }
+
+        .nav {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 16px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .page-header .highlight {
+            color: var(--primary);
+        }
+
+        .page-header p {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .last-updated {
+            background: var(--primary-bg);
+            border: 1px solid var(--primary-light);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 32px;
+            text-align: center;
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+
+        .content {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 32px 0 16px 0;
+            color: var(--text-primary);
+            border-left: 4px solid var(--primary);
+            padding-left: 16px;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 24px 0 12px 0;
+            color: var(--text-primary);
+        }
+
+        p {
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        ul {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .highlight-box {
+            background: var(--primary-bg);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--primary-dark);
+            margin-top: 0;
+        }
+
+        .contact-info {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .contact-info h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 24px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: var(--primary-bg);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 16px;
+            }
+            
+            .content {
+                padding: 24px 20px;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo-container">
+                <div class="logo-icon">♥</div>
+                <div class="logo-text">Kithly</div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="/" class="back-link">← Back to Home</a>
+        
+        <div class="page-header">
+            <h1>Terms of <span class="highlight">Service</span></h1>
+            <p>The foundation for a safe, respectful family storytelling experience</p>
+        </div>
+
+        <div class="last-updated">
+            <strong>Last Updated:</strong> December 2024
+        </div>
+
+        <div class="content">
+            <div class="highlight-box">
+                <h3>Welcome to the Kithly Family</h3>
+                <p>By using Kithly, you're joining a community dedicated to bringing families closer together through authentic storytelling and meaningful connections.</p>
+            </div>
+
+            <h2>1. Acceptance of Terms</h2>
+            
+            <p>By downloading, accessing, or using the Kithly mobile application ("App"), you agree to be bound by these Terms of Service ("Terms"). If you don't agree to these terms, please don't use our service.</p>
+
+            <p>These Terms apply to all users of Kithly, including family members who participate in your family circle.</p>
+
+            <h2>2. Description of Service</h2>
+            
+            <p>Kithly is a family communication platform that:</p>
+            <ul>
+                <li>Provides daily conversation prompts to encourage family sharing</li>
+                <li>Enables family members to record and share audio responses</li>
+                <li>Creates personalized family podcast episodes</li>
+                <li>Maintains private family circles for secure sharing</li>
+                <li>Preserves family stories and memories</li>
+            </ul>
+
+            <h2>3. Eligibility and Account Requirements</h2>
+            
+            <h3>Age Requirements</h3>
+            <ul>
+                <li>Users must be 13 years or older to create an account independently</li>
+                <li>Children under 13 may use Kithly under parental supervision and with a parent-managed account</li>
+                <li>Parents are responsible for their minor children's use of the service</li>
+            </ul>
+
+            <h3>Account Responsibility</h3>
+            <ul>
+                <li>You're responsible for maintaining the security of your account</li>
+                <li>You must provide accurate and complete information</li>
+                <li>You're responsible for all activity under your account</li>
+                <li>Notify us immediately of any unauthorized use</li>
+            </ul>
+
+            <h2>4. User Content and Conduct</h2>
+            
+            <h3>Your Content</h3>
+            <p>You retain ownership of all content you create on Kithly, including:</p>
+            <ul>
+                <li>Audio recordings and voice messages</li>
+                <li>Profile information and family connections</li>
+                <li>Comments and interactions within your family circle</li>
+            </ul>
+
+            <p>By using Kithly, you grant us a limited license to process, store, and deliver your content solely for the purpose of providing our service to you and your family.</p>
+
+            <h3>Content Standards</h3>
+            <p>All content shared on Kithly must be:</p>
+            <ul>
+                <li>Respectful and appropriate for a family environment</li>
+                <li>Free from harassment, threats, or abuse</li>
+                <li>Non-discriminatory and inclusive</li>
+                <li>Legally compliant and not infringing on others' rights</li>
+            </ul>
+
+            <h3>Prohibited Uses</h3>
+            <p>You may not use Kithly to:</p>
+            <ul>
+                <li>Share inappropriate, harmful, or illegal content</li>
+                <li>Harass, threaten, or abuse other users</li>
+                <li>Impersonate others or create false accounts</li>
+                <li>Distribute spam, malware, or harmful code</li>
+                <li>Violate any applicable laws or regulations</li>
+                <li>Attempt to gain unauthorized access to our systems</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h3>Family-Friendly Environment</h3>
+                <p>Kithly is designed to be a safe space for all family members, including children. We have zero tolerance for content that could harm the family environment we're committed to protecting.</p>
+            </div>
+
+            <h2>5. Privacy and Data Protection</h2>
+            
+            <p>Your privacy is fundamental to our service. Our Privacy Policy details how we collect, use, and protect your information. Key points:</p>
+            <ul>
+                <li>Your family stories remain private within your family circle</li>
+                <li>We never sell your data to third parties</li>
+                <li>All audio content is encrypted and securely stored</li>
+                <li>You control who has access to your content</li>
+            </ul>
+
+            <h2>6. Subscription and Payment</h2>
+            
+            <h3>Free and Premium Features</h3>
+            <p>Kithly offers both free and premium subscription tiers:</p>
+            <ul>
+                <li><strong>Free:</strong> Basic family circle and recording features</li>
+                <li><strong>Premium:</strong> Enhanced features, extended storage, and advanced family tools</li>
+            </ul>
+
+            <h3>Payment Terms</h3>
+            <ul>
+                <li>Subscriptions are billed monthly or annually as selected</li>
+                <li>Payment is charged to your chosen payment method</li>
+                <li>Subscriptions auto-renew unless cancelled</li>
+                <li>You can cancel anytime through your account settings</li>
+            </ul>
+
+            <h3>Refund Policy</h3>
+            <p>We offer refunds in accordance with app store policies (Apple App Store, Google Play Store). For direct subscriptions, we provide pro-rated refunds for unused premium time when accounts are deleted.</p>
+
+            <h2>7. Intellectual Property</h2>
+            
+            <h3>Kithly's Rights</h3>
+            <p>Kithly and its features, including the app design, prompts, and underlying technology, are protected by copyright and other intellectual property laws.</p>
+
+            <h3>Your Rights</h3>
+            <p>You retain all rights to your content. We only use your content to provide our service and never for any other commercial purposes.</p>
+
+            <h2>8. Service Availability</h2>
+            
+            <p>We strive to provide reliable service, but:</p>
+            <ul>
+                <li>Service may occasionally be unavailable due to maintenance or technical issues</li>
+                <li>We don't guarantee uninterrupted access</li>
+                <li>We may modify features or functionality with reasonable notice</li>
+                <li>We'll do our best to minimize any service disruptions</li>
+            </ul>
+
+            <h2>9. Account Termination</h2>
+            
+            <h3>Your Right to Terminate</h3>
+            <ul>
+                <li>You can delete your account at any time through app settings</li>
+                <li>Account deletion removes all your content and data</li>
+                <li>Family members will be notified when you leave a family circle</li>
+            </ul>
+
+            <h3>Our Right to Terminate</h3>
+            <p>We may suspend or terminate accounts that:</p>
+            <ul>
+                <li>Violate these Terms of Service</li>
+                <li>Engage in harmful or abusive behavior</li>
+                <li>Pose security or safety risks</li>
+                <li>Remain inactive for extended periods (with notice)</li>
+            </ul>
+
+            <h2>10. Limitation of Liability</h2>
+            
+            <p>To the fullest extent permitted by law:</p>
+            <ul>
+                <li>Kithly is provided "as is" without warranties</li>
+                <li>We're not liable for indirect, incidental, or consequential damages</li>
+                <li>Our total liability is limited to the amount you've paid for our service</li>
+                <li>We're not responsible for content shared by other family members</li>
+            </ul>
+
+            <h2>11. Dispute Resolution</h2>
+            
+            <h3>Communication First</h3>
+            <p>If you have concerns, please contact us first. We're committed to resolving issues quickly and fairly.</p>
+
+            <h3>Governing Law</h3>
+            <p>These terms are governed by the laws of [Your Jurisdiction], and any disputes will be resolved in the courts of [Your Jurisdiction].</p>
+
+            <h2>12. Changes to Terms</h2>
+            
+            <p>We may update these Terms to reflect changes in our service or legal requirements:</p>
+            <ul>
+                <li>We'll notify users of significant changes through the app and email</li>
+                <li>Continued use after changes indicates acceptance</li>
+                <li>If you don't agree to changes, you may terminate your account</li>
+            </ul>
+
+            <h2>13. International Use</h2>
+            
+            <p>Kithly is available globally, but users are responsible for complying with local laws and regulations in their jurisdiction.</p>
+
+            <div class="contact-info">
+                <h3>Questions or Concerns?</h3>
+                <p>We're here to help and want to ensure you have the best possible experience with Kithly.</p>
+                <p><strong>Email:</strong> support@kithly.app</p>
+                <p><strong>Legal:</strong> legal@kithly.app</p>
+                <p><strong>Address:</strong> Kithly Legal Team<br>
+                [Your Company Address]<br>
+                [City, State, ZIP]</p>
+                <p>We typically respond to inquiries within 24-48 hours.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
