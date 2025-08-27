@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copyright & Terms - Kithly</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Colors matching Kithly design */
+            --primary: #8b5cf6;
+            --primary-dark: #7c3aed;
+            --primary-light: #ddd6fe;
+            --primary-bg: #f5f3ff;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --bg-primary: #f9fafb;
+            --bg-white: #ffffff;
+            --border: #e5e7eb;
+            --border-light: #f3f4f6;
+            --shadow: rgba(0, 0, 0, 0.05);
+            --shadow-md: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        .copyright-hero {
+            text-align: center;
+            padding: 48px 0 64px;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .copyright-hero h1 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .copyright-hero .highlight {
+            color: var(--primary);
+        }
+
+        .copyright-hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .content-section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--primary);
+        }
+
+        .content-section p {
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .content-section ul {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        .content-section li {
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .highlight-box {
+            background: var(--primary-bg);
+            border: 2px solid var(--primary-light);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .highlight-box p {
+            color: var(--text-primary);
+            margin-bottom: 0;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            background: var(--primary);
+            color: white;
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .contact-info h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .contact-info p {
+            margin-bottom: 24px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: white;
+            color: var(--primary);
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .last-updated {
+            text-align: center;
+            padding: 32px 0;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav {
+                padding: 16px 20px;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+            
+            .copyright-hero {
+                padding: 32px 0 48px;
+            }
+            
+            .content-section {
+                padding: 24px;
+            }
+            
+            .contact-info {
+                padding: 24px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="/" class="logo-container">
+                <div class="logo-icon">♥</div>
+                <div class="logo-text">Kithly</div>
+            </a>
+            <div class="breadcrumb">
+                <a href="/">Home</a>
+                <span>→</span>
+                <span>Copyright & Terms</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Copyright Hero -->
+        <section class="copyright-hero">
+            <div class="container">
+                <h1>Copyright & <span class="highlight">Terms</span></h1>
+                <p>Simple, family-friendly terms for sharing your voices and creating lasting memories together.</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Your Content, Your Rights -->
+            <section class="content-section">
+                <h2>
+                    <div class="section-icon">🎙️</div>
+                    Your Voice, Your Rights
+                </h2>
+                <p>When you record your voice on Kithly, that recording belongs to <strong>you</strong>. We believe your family stories, memories, and voices are sacred and should always remain under your control.</p>
+                
+                <div class="highlight-box">
+                    <h3>What this means:</h3>
+                    <p>You own all the audio content you create. Kithly simply helps you organize and share it with your family circle. We never claim ownership of your recordings.</p>
+                </div>
+
+                <p>Your family recordings are:</p>
+                <ul>
+                    <li>Owned entirely by you and your family members</li>
+                    <li>Only accessible to people in your family circle</li>
+                    <li>Never used for advertising, training, or any commercial purposes</li>
+                    <li>Protected by privacy settings that you control</li>
+                </ul>
+            </section>
+
+            <!-- How We Use Your Content -->
+            <section class="content-section">
+                <h2>
+                    <div class="section-icon">🔒</div>
+                    How We Handle Your Family Stories
+                </h2>
+                <p>Kithly's role is simple: we provide the technology to help families connect through voice. Here's exactly what we do with your content:</p>
+                
+                <p><strong>What we DO:</strong></p>
+                <ul>
+                    <li>Store your recordings securely and privately</li>
+                    <li>Create podcast episodes from your family's responses</li>
+                    <li>Enable sharing within your family circle only</li>
+                    <li>Backup your content to prevent loss</li>
+                </ul>
+
+                <p><strong>What we DON'T do:</strong></p>
+                <ul>
+                    <li>Share your recordings with anyone outside your family</li>
+                    <li>Use your content for advertising or marketing</li>
+                    <li>Sell or license your family's voices</li>
+                    <li>Train AI systems with your personal recordings</li>
+                    <li>Monitor or listen to your private family conversations</li>
+                </ul>
+            </section>
+
+            <!-- Family Circle Rules -->
+            <section class="content-section">
+                <h2>
+                    <div class="section-icon">👥</div>
+                    Family Circle Guidelines
+                </h2>
+                <p>Kithly is designed for families to share authentic moments together. To keep our community safe and meaningful:</p>
+                
+                <ul>
+                    <li><strong>Family-only sharing:</strong> Only invite actual family members to your circles</li>
+                    <li><strong>Respectful communication:</strong> Keep conversations loving and appropriate for all ages</li>
+                    <li><strong>Privacy respect:</strong> Don't share other family members' recordings outside the app</li>
+                    <li><strong>Authentic sharing:</strong> Share genuine thoughts and experiences</li>
+                    <li><strong>Age-appropriate content:</strong> Keep all content suitable for family listening</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h3>Remember:</h3>
+                    <p>Every family member has the right to participate comfortably. If someone asks for their recording to be removed, please respect that request.</p>
+                </div>
+            </section>
+
+            <!-- Account and Data -->
+            <section class="content-section">
+                <h2>
+                    <div class="section-icon">⚙️</div>
+                    Your Account & Data
+                </h2>
+                <p>You have full control over your Kithly account and family data:</p>
+                
+                <p><strong>Account Control:</strong></p>
+                <ul>
+                    <li>You can download all your family's recordings at any time</li>
+                    <li>You can delete individual recordings or your entire account</li>
+                    <li>You can leave family circles or remove family members</li>
+                    <li>You control who can hear your recordings</li>
+                </ul>
+
+                <p><strong>Data Retention:</strong></p>
+                <ul>
+                    <li>Your recordings are kept as long as your account is active</li>
+                    <li>If you delete your account, all your data is permanently removed within 30 days</li>
+                    <li>Individual recordings can be deleted immediately</li>
+                </ul>
+
+                <p>Need to delete your account? Visit our <a href="/delete-account/" style="color: var(--primary);">account deletion page</a>.</p>
+            </section>
+
+            <!-- Service Usage -->
+            <section class="content-section">
+                <h2>
+                    <div class="section-icon">📱</div>
+                    Using Kithly Responsibly
+                </h2>
+                <p>Kithly is built for meaningful family connection. Please use our service:</p>
+                
+                <ul>
+                    <li><strong>As intended:</strong> For genuine family sharing and connection</li>
+                    <li><strong>Legally:</strong> Don't record anyone without their knowledge or consent</li>
+                    <li><strong>Respectfully:</strong> Honor your family members' privacy and comfort levels</li>
+                    <li><strong>Safely:</strong> Keep your account secure and don't share login details</li>
+                </ul>
+
+                <p>We reserve the right to suspend accounts that misuse the service, but we're committed to working with families to resolve any issues.</p>
+            </section>
+
+            <!-- Changes and Updates -->
+            <section class="content-section">
+                <h2>
+                    <div class="section-icon">📝</div>
+                    Updates to These Terms
+                </h2>
+                <p>As Kithly grows and improves, we may need to update these terms. If we make significant changes:</p>
+                
+                <ul>
+                    <li>We'll notify you through the app and via email</li>
+                    <li>You'll have time to review the changes before they take effect</li>
+                    <li>You can always export your data if you don't agree with updates</li>
+                    <li>Major changes will never affect your existing recordings retroactively</li>
+                </ul>
+
+                <p>Our commitment to keeping your family stories private and secure will never change.</p>
+            </section>
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h2>Questions About These Terms?</h2>
+                <p>We believe in clear, honest communication. If you have any questions about these terms or how we handle your family's data, please reach out.</p>
+                <a href="mailto:kithlysg@gmail.com" class="btn">📧 Contact Us</a>
+            </div>
+
+            <div class="last-updated">
+                <p>Last updated: December 2024</p>
+                <p>Effective date: December 2024</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe content sections for animation
+        document.querySelectorAll('.content-section').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced button interactions
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(139, 92, 246, 0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                `;
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add ripple animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
