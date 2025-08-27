@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deletion - Kithly</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8b5cf6;
+            --primary-dark: #7c3aed;
+            --primary-light: #ddd6fe;
+            --primary-bg: #f5f3ff;
+            --danger: #ef4444;
+            --danger-light: #fee2e2;
+            --danger-bg: #fef2f2;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --warning-bg: #fffbeb;
+            --success: #22c55e;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --bg-primary: #f9fafb;
+            --bg-white: #ffffff;
+            --border: #e5e7eb;
+            --border-light: #f3f4f6;
+            --shadow: rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        .header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
+            padding: 16px 0;
+        }
+
+        .nav {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 16px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .page-header .highlight {
+            color: var(--danger);
+        }
+
+        .page-header p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 24px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: var(--primary-bg);
+        }
+
+        .content {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 2px 10px var(--shadow);
+            margin-bottom: 24px;
+        }
+
+        .warning-box {
+            background: var(--warning-bg);
+            border: 1px solid var(--warning-light);
+            border-left: 4px solid var(--warning);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 32px;
+        }
+
+        .warning-box h3 {
+            color: var(--warning);
+            margin-bottom: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .danger-box {
+            background: var(--danger-bg);
+            border: 1px solid var(--danger-light);
+            border-left: 4px solid var(--danger);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 32px;
+        }
+
+        .danger-box h3 {
+            color: var(--danger);
+            margin-bottom: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 32px 0 16px 0;
+            color: var(--text-primary);
+            border-left: 4px solid var(--primary);
+            padding-left: 16px;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 24px 0 12px 0;
+            color: var(--text-primary);
+        }
+
+        p {
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        ul {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .step-section {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            color: white;
+            border-radius: 16px;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+
+        .step-title {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .alternatives-section {
+            background: var(--primary-bg);
+            border: 1px solid var(--primary-light);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+
+        .alternatives-section h3 {
+            color: var(--primary-dark);
+            margin-top: 0;
+        }
+
+        .alternative-option {
+            background: var(--bg-white);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 0;
+            border-left: 3px solid var(--primary);
+        }
+
+        .alternative-option h4 {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .contact-info {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .contact-info h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .btn {
+            border-radius: 12px;
+            padding: 12px 24px;
+            border: none;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #dc2626;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-white);
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .timeline {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 6px;
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+
+        .timeline-content h4 {
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .retention-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px var(--shadow);
+        }
+
+        .retention-table th,
+        .retention-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .retention-table th {
+            background: var(--primary-bg);
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .retention-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 16px;
+            }
+            
+            .content {
+                padding: 24px 20px;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .step-section {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo-container">
+                <div class="logo-icon">♥</div>
+                <div class="logo-text">Kithly</div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="/support" class="back-link">← Back to Support</a>
+        
+        <div class="page-header">
+            <h1>Account <span class="highlight">Deletion</span></h1>
+            <p>We're sorry to see you go. This page explains how to delete your account and what happens to your family stories.</p>
+        </div>
+
+        <div class="content">
+            <div class="danger-box">
+                <h3>⚠️ Important: This Action Cannot Be Undone</h3>
+                <p>Once you delete your account, all your recordings, stories, and family connections will be permanently removed. This action is irreversible and your data cannot be recovered.</p>
+            </div>
+
+            <div class="alternatives-section">
+                <h3>💡 Consider These Alternatives First</h3>
+                <p>Before deleting your account, consider these options that might address your concerns:</p>
+                
+                <div class="alternative-option">
+                    <h4>📱 Take a Break</h4>
+                    <p>Disable notifications and step away for a while. Your stories will be waiting when you return.</p>
+                </div>
+                
+                <div class="alternative-option">
+                    <h4>🔒 Adjust Privacy Settings</h4>
+                    <p>Control who can see your content and which family circles you participate in.</p>
+                </div>
+                
+                <div class="alternative-option">
+                    <h4>📧 Update Preferences</h4>
+                    <p>Change notification settings, prompt frequency, or family circle participation.</p>
+                </div>
+                
+                <div class="alternative-option">
+                    <h4>💬 Talk to Support</h4>
+                    <p>We're here to help resolve any issues you might be experiencing.</p>
+                </div>
+            </div>
+
+            <h2>What Gets Deleted</h2>
+            
+            <p>When you delete your account, the following will be permanently removed:</p>
+            <ul>
+                <li><strong>All your audio recordings</strong> - Every story and response you've shared</li>
+                <li><strong>Your profile information</strong> - Name, email, and account details</li>
+                <li><strong>Family circle connections</strong> - You'll be removed from all family circles</li>
+                <li><strong>Podcast episodes</strong> - Episodes containing your voice will be updated</li>
+                <li><strong>App preferences</strong> - Settings, notifications, and customizations</li>
+                <li><strong>Subscription data</strong> - Premium features and billing information</li>
+            </ul>
+
+            <h2>Impact on Your Family</h2>
+            
+            <div class="warning-box">
+                <h3>🏠 How This Affects Your Family Circle</h3>
+                <p>Your deletion will impact other family members in the following ways:</p>
+            </div>
+            
+            <ul>
+                <li><strong>Family members will be notified</strong> that you've left the family circle</li>
+                <li><strong>Your voice will be removed</strong> from future podcast episodes</li>
+                <li><strong>Past episodes</strong> containing your recordings will no longer be available</li>
+                <li><strong>Family prompts</strong> will continue without your participation</li>
+                <li><strong>Other members</strong> can continue sharing and connecting</li>
+            </ul>
+
+            <h2>Before You Delete: Download Your Data</h2>
+            
+            <p>We recommend downloading your personal data before deletion. This includes:</p>
+            <ul>
+                <li>All your audio recordings</li>
+                <li>Transcripts of your responses</li>
+                <li>Family podcast episodes you participated in</li>
+                <li>Your account information and settings</li>
+            </ul>
+
+            <div class="step-section">
+                <div class="step-title">
+                    <span class="step-number">1</span>
+                    Go to Settings → Privacy → Download My Data
+                </div>
+                <p>This process may take up to 24 hours for large amounts of data.</p>
+            </div>
+
+            <h2>How to Delete Your Account</h2>
+            
+            <h3>Option 1: Through the App</h3>
+            <div class="step-section">
+                <div class="step-title">
+                    <span class="step-number">1</span>
+                    Open Kithly and go to Settings
+                </div>
+            </div>
+            
+            <div class="step-section">
+                <div class="step-title">
+                    <span class="step-number">2</span>
+                    Tap "Account & Privacy"
+                </div>
+            </div>
+            
+            <div class="step-section">
+                <div class="step-title">
+                    <span class="step-number">3</span>
+                    Scroll down and tap "Delete Account"
+                </div>
+            </div>
+            
+            <div class="step-section">
+                <div class="step-title">
+                    <span class="step-number">4</span>
+                    Follow the confirmation prompts
+                </div>
+                <p>You'll need to verify your identity and confirm your decision.</p>
+            </div>
+
+            <h3>Option 2: Contact Support</h3>
+            <p>If you can't access the app or need assistance, contact our support team:</p>
+            <ul>
+                <li><strong>Email:</strong> support@kithly.app</li>
+                <li><strong>Subject Line:</strong> "Account Deletion Request"</li>
+                <li><strong>Include:</strong> Your registered email address and reason for deletion</li>
+            </ul>
+
+            <h2>Deletion Timeline</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>Immediate (0-24 hours)</h4>
+                        <p>Account deactivated, removed from family circles, app access disabled</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>Within 7 Days</h4>
+                        <p>All personal content and recordings permanently deleted from active systems</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>Within 30 Days</h4>
+                        <p>Complete removal from backup systems and final cleanup</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Data Retention for Legal Requirements</h2>
+            
+            <p>Some data may be retained for legal or regulatory compliance:</p>
+            
+            <table class="retention-table">
+                <thead>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Retention Period</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Billing Records</td>
+                        <td>7 years</td>
+                        <td>Tax and financial regulations</td>
+                    </tr>
+                    <tr>
+                        <td>Support Tickets</td>
+                        <td>3 years</td>
+                        <td>Customer service records</td>
+                    </tr>
+                    <tr>
+                        <td>Basic Account Info</td>
+                        <td>30 days</td>
+                        <td>Prevent immediate re-registration abuse</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Reactivation Policy</h2>
+            
+            <p>Once your account is deleted:</p>
+            <ul>
+                <li>You can create a new account with the same email after 30 days</li>
+                <li>Your previous content and connections cannot be restored</li>
+                <li>You'll need to rebuild your family circles from scratch</li>
+                <li>Premium subscriptions are cancelled and cannot be transferred</li>
+            </ul>
+
+            <div class="contact-info">
+                <h3>Need Help or Have Questions?</h3>
+                <p>Our support team is here to help you with the account deletion process or address any concerns you might have.</p>
+                <p><strong>Email:</strong> support@kithly.app</p>
+                <p><strong>Privacy Questions:</strong> privacy@kithly.app</p>
+                <p><strong>Phone:</strong> Available through in-app support</p>
+                <p>We typically respond within 24 hours and are committed to making this process as smooth as possible.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-light);">
+                <p style="color: var(--text-secondary); margin-bottom: 16px;">Are you sure you want to proceed?</p>
+                <a href="mailto:support@kithly.app?subject=Account%20Deletion%20Request" class="btn btn-danger">Request Account Deletion</a>
+                <span style="margin: 0 16px;">or</span>
+                <a href="/support" class="btn btn-secondary">Get Help Instead</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add confirmation for dangerous actions
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteButtons = document.querySelectorAll('.btn-danger');
+            
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const confirmed = confirm(
+                        'Are you absolutely sure you want to delete your account? This action cannot be undone and will permanently remove all your family stories and connections.'
+                    );
+                    
+                    if (!confirmed) {
+                        e.preventDefault();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
