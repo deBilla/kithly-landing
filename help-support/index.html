@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Kithly</title>
+    <title>Help & Support - Kithly</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -13,10 +13,14 @@
         }
 
         :root {
+            /* Colors matching Kithly design */
             --primary: #8b5cf6;
             --primary-dark: #7c3aed;
             --primary-light: #ddd6fe;
             --primary-bg: #f5f3ff;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --warning: #f59e0b;
             --text-primary: #1f2937;
             --text-secondary: #6b7280;
             --text-light: #9ca3af;
@@ -40,6 +44,7 @@
             scroll-behavior: smooth;
         }
 
+        /* Header */
         .header {
             position: fixed;
             top: 0;
@@ -102,6 +107,7 @@
             text-decoration: underline;
         }
 
+        /* Main Content */
         .main-content {
             padding-top: 100px;
             min-height: 100vh;
@@ -113,32 +119,129 @@
             padding: 0 24px;
         }
 
-        .policy-hero {
+        /* Hero Section */
+        .help-hero {
             text-align: center;
             padding: 48px 0 64px;
             background: var(--bg-white);
             border-bottom: 1px solid var(--border-light);
         }
 
-        .policy-hero h1 {
+        .help-hero h1 {
             font-size: clamp(2rem, 4vw, 2.5rem);
             font-weight: 700;
             margin-bottom: 16px;
             color: var(--text-primary);
         }
 
-        .policy-hero .highlight {
+        .help-hero .highlight {
             color: var(--primary);
         }
 
-        .policy-hero p {
+        .help-hero p {
             font-size: 18px;
             color: var(--text-secondary);
             max-width: 600px;
             margin: 0 auto 32px;
         }
-        
-        .policy-section {
+
+        /* Search Bar */
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 16px 20px 16px 48px;
+            font-size: 16px;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            background: var(--bg-white);
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            font-size: 18px;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            padding: 48px 0;
+        }
+
+        .quick-actions h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .action-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 2px solid var(--border-light);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .action-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+
+        .action-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary-bg);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 28px;
+            color: var(--primary);
+        }
+
+        .action-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .action-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* FAQ Section */
+        .faq-section {
             padding: 64px 0;
             background: var(--bg-white);
         }
@@ -213,16 +316,80 @@
             padding-bottom: 20px;
         }
 
-        .faq-answer p, .faq-answer ol {
+        .faq-answer p {
             color: var(--text-secondary);
             line-height: 1.6;
-            padding-left: 20px;
-        }
-        
-        .faq-answer p {
-            padding-left: 0;
         }
 
+        /* Categories Section */
+        .categories-section {
+            padding: 64px 0;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .category-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 10px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px var(--shadow-md);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--primary);
+        }
+
+        .category-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .category-links {
+            list-style: none;
+        }
+
+        .category-links li {
+            margin-bottom: 8px;
+        }
+
+        .category-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .category-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Contact Section */
         .contact-section {
             padding: 64px 0;
             background: var(--primary);
@@ -242,18 +409,41 @@
             opacity: 0.9;
         }
 
+        .contact-options {
+            display: flex;
+            justify-content: center;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
         .contact-card {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 16px;
             padding: 24px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            max-width: 500px;
-            margin: 0 auto;
+            transition: all 0.3s ease;
         }
-        
+
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .contact-card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 24px;
+        }
+
         .contact-card h3 {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             margin-bottom: 8px;
         }
@@ -262,25 +452,111 @@
             font-size: 14px;
             opacity: 0.8;
             margin-bottom: 16px;
-            line-height: 1.7;
         }
-        
-        .contact-card a {
-            color: white;
+
+        .btn {
+            border-radius: 12px;
+            padding: 12px 20px;
+            border: none;
+            font-family: inherit;
             font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
-        
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Status Banner */
+        .status-banner {
+            background: var(--success);
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .status-banner.warning {
+            background: var(--warning);
+        }
+
+        .status-banner.error {
+            background: var(--danger);
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .nav { padding: 16px 20px; }
-            .container { padding: 0 20px; }
-            .policy-hero { padding: 32px 0 48px; }
-            .section-header h2 { font-size: 1.75rem; }
-            .contact-content h2 { font-size: 1.75rem; }
+            .nav {
+                padding: 16px 20px;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+            
+            .help-hero {
+                padding: 32px 0 48px;
+            }
+            
+            .actions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-options {
+                justify-content: center;
+            }
+            
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+            
+            .contact-content h2 {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
         }
     </style>
 </head>
 <body>
+    <!-- Status Banner -->
+    <div class="status-banner">
+        🟢 All systems operational - We're here to help!
+    </div>
 
+    <!-- Header -->
     <header class="header">
         <nav class="nav">
             <a href="/" class="logo-container">
@@ -288,95 +564,213 @@
                 <div class="logo-text">Kithly</div>
             </a>
             <div class="breadcrumb">
-                <span>Privacy Policy</span>
+                <a href="/">Home</a>
+                <span>→</span>
+                <span>Help & Support</span>
             </div>
         </nav>
     </header>
 
+    <!-- Main Content -->
     <main class="main-content">
-        <section class="policy-hero">
+        <!-- Help Hero -->
+        <section class="help-hero">
             <div class="container">
-                <h1>Our Commitment to <span class="highlight">Your Privacy</span></h1>
-                <p>Your family's stories are precious, and we believe your data is too. This policy explains what we collect, how we use it, and most importantly, how we protect it.</p>
+                <h1>How can we <span class="highlight">help</span> you?</h1>
+                <p>Find answers, get support, and make the most of your Kithly experience. We're here to help your family stay connected.</p>
+                
+                <div class="search-container">
+                    <div class="search-icon">🔍</div>
+                    <input type="text" class="search-box" placeholder="Search for help articles, features, or questions..." id="searchBox">
+                </div>
             </div>
         </section>
 
-        <section class="policy-section">
+        <!-- Quick Actions -->
+        <section class="quick-actions">
             <div class="container">
-                <div class="faq-container">
-                    
-                    <div class="faq-item active">
-                        <button class="faq-question">
-                            How does Kithly work?
-                            <span class="faq-icon">▼</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Kithly helps you create meaningful audio memories with your family. The process is simple:</p>
-                            <ol>
-                                <li>A user creates an account and gets a unique invitation code.</li>
-                                <li>They ask family members to download the app and join using that code.</li>
-                                <li>A prompt or question is created for the group.</li>
-                                <li>Family members answer the prompt using voice recordings.</li>
-                                <li>An "episode" is automatically created using everybody's recordings for the group to enjoy.</li>
-                            </ol>
-                        </div>
+                <h2>Quick Help</h2>
+                <div class="actions-grid">
+                    <div class="action-card" onclick="scrollToSection('getting-started')">
+                        <div class="action-icon">🚀</div>
+                        <h3>Getting Started</h3>
+                        <p>New to Kithly? Learn how to set up your family circle and start sharing stories.</p>
                     </div>
                     
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            What information do you collect?
-                            <span class="faq-icon">▼</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>We only collect what's essential to make Kithly work:
-                                <br>• <strong>Account Information:</strong> Your email address and a nickname.
-                                <br>• <strong>Voice Recordings:</strong> The audio recordings you and your family submit to answer prompts.
-                            </p>
-                        </div>
+                    <div class="action-card" onclick="scrollToSection('technical-support')">
+                        <div class="action-icon">⚙️</div>
+                        <h3>Technical Issues</h3>
+                        <p>Troubleshoot recording, playback, or app performance problems.</p>
                     </div>
                     
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            How is my data handled and deleted?
-                            <span class="faq-icon">▼</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>We believe in data minimalism.
-                                <br>• <strong>Recordings are temporary:</strong> Individual voice recordings are <strong>permanently deleted</strong> right after an episode is created.
-                                <br>• <strong>Episodes are yours to control:</strong> Your completed episodes can also be <strong>permanently deleted</strong> by sending a request to <a href="mailto:dimuthu.billa@gmail.com">dimuthu.billa@gmail.com</a>.
-                            </p>
-                        </div>
+                    <div class="action-card" onclick="scrollToSection('family-management')">
+                        <div class="action-icon">👥</div>
+                        <h3>Family Management</h3>
+                        <p>Add or remove family members, manage permissions, and privacy settings.</p>
                     </div>
+                    
+                    <div class="action-card" onclick="scrollToSection('account-settings')">
+                        <div class="action-icon">👤</div>
+                        <h3>Account Settings</h3>
+                        <p>Manage your profile, preferences, and account options.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Quick answers to the most common questions about Kithly</p>
+                </div>
+                
+                <div class="faq-container">
                     <div class="faq-item">
                         <button class="faq-question">
-                            What information do you NOT collect?
+                            How do I invite family members to join my circle?
                             <span class="faq-icon">▼</span>
                         </button>
                         <div class="faq-answer">
-                            <p>To ensure your privacy, we want to be clear about what we don't do:
-                                <br>• <strong>No Transcriptions:</strong> We do not generate or store text transcriptions of your recordings.
-                                <br>• <strong>No Usage Tracking:</strong> We do not track or analyze how you use the app.
-                                <br>• <strong>No Data Sharing:</strong> We do not sell, rent, or share any of your personal data with third parties. Ever.
-                            </p>
+                            <p>To invite family members: Go to your Family Circle tab, tap the "+" icon, enter their email address or phone number, and send the invitation. They'll receive a link to download the app and join your private family circle. You can invite up to 12 family members.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Can I listen to old family podcast episodes?
+                            <span class="faq-icon">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! All your family's podcast episodes are saved in the Archive section. You can browse by date, search by topic, or filter by family member. Each episode includes the original question and everyone's responses, creating a beautiful timeline of your family's stories.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Is my family's data private and secure?
+                            <span class="faq-icon">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutely. Your family's stories are encrypted and stored securely. Only invited family members can access your circle's content. We never share, sell, or use your personal stories for any purpose other than creating your family podcast episodes. Your privacy is our top priority.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What happens if someone misses answering a daily question?
+                            <span class="faq-icon">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>No pressure! Family members can catch up on missed questions anytime in the "Previous Questions" section. The podcast episode will be created once everyone has responded, or automatically after 48 hours with whoever has participated.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Can I customize the types of questions my family receives?
+                            <span class="faq-icon">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! You can choose from different question categories like "Family History," "Daily Life," "Dreams & Goals," or "Fun & Games." You can also set the frequency and suggest custom questions for your family circle.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How long can my voice recordings be?
+                            <span class="faq-icon">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>You can record up to 5 minutes per response. Most family members find 1-2 minutes perfect for sharing their thoughts authentically. Remember, it's about quality connection, not length!</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Help Categories -->
+        <section class="categories-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Browse by Category</h2>
+                    <p>Find detailed guides and tutorials for every aspect of Kithly</p>
+                </div>
+                
+                <div class="categories-grid">
+                    <div class="category-card" id="getting-started">
+                        <div class="category-header">
+                            <div class="category-icon">🌟</div>
+                            <h3>Getting Started</h3>
+                        </div>
+                        <ul class="category-links">
+                            <li><a href="#setup">Setting up your first family circle</a></li>
+                            <li><a href="#first-recording">Making your first recording</a></li>
+                            <li><a href="#invite-family">Inviting family members</a></li>
+                            <li><a href="#app-tour">Complete app walkthrough</a></li>
+                            <li><a href="#best-practices">Best practices for meaningful sharing</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="category-card" id="technical-support">
+                        <div class="category-header">
+                            <div class="category-icon">🔧</div>
+                            <h3>Technical Support</h3>
+                        </div>
+                        <ul class="category-links">
+                            <li><a href="#audio-issues">Recording and playback problems</a></li>
+                            <li><a href="#sync-issues">Syncing issues across devices</a></li>
+                            <li><a href="#notifications">Notification settings and troubleshooting</a></li>
+                            <li><a href="#storage">Storage and backup options</a></li>
+                            <li><a href="#performance">App performance optimization</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="category-card" id="family-management">
+                        <div class="category-header">
+                            <div class="category-icon">👨‍👩‍👧‍👦</div>
+                            <h3>Family Management</h3>
+                        </div>
+                        <ul class="category-links">
+                            <li><a href="#add-remove">Adding and removing family members</a></li>
+                            <li><a href="#permissions">Managing permissions and roles</a></li>
+                            <li><a href="#multiple-circles">Creating multiple family circles</a></li>
+                            <li><a href="#privacy-settings">Privacy and sharing settings</a></li>
+                            <li><a href="#parental-controls">Parental controls and kid safety</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="category-card" id="account-settings">
+                        <div class="category-header">
+                            <div class="category-icon">👤</div>
+                            <h3>Account Settings</h3>
+                        </div>
+                        <ul class="category-links">
+                            <li><a href="#profile-settings">Profile settings and preferences</a></li>
+                            <li><a href="#notification-preferences">Notification preferences</a></li>
+                            <li><a href="#data-export">Exporting your family's data</a></li>
+                            <li><a href="/delete-account/">Deleting your account</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
         <section class="contact-section">
             <div class="container">
                 <div class="contact-content">
-                    <h2>Have Questions?</h2>
-                    <p>If you have any questions about our privacy practices, please reach out.</p>
-                    <div class="contact-card">
-                        <h3>Contact Information</h3>
-                        <p>
-                            <strong>Email:</strong> <a href="mailto:dimuthu.billa@gmail.com">dimuthu.billa@gmail.com</a>
-                            <br>
-                            <strong>Address:</strong> 16 Pasir Ris Dr 8, Singapore 519471
-                        </p>
+                    <h2>Still need help?</h2>
+                    <p>Our family-focused support team is here to help you create meaningful connections.</p>
+                    
+                    <div class="contact-options">
+                        <div class="contact-card">
+                            <div class="contact-card-icon">📧</div>
+                            <h3>Email Support</h3>
+                            <p>Send us a detailed message and we'll get back to you within 24 hours</p>
+                            <a href="mailto:kithlysg@gmail.com" class="btn btn-white">Email Us</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -384,12 +778,127 @@
     </main>
 
     <script>
+        // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const faqItem = question.parentElement;
-                faqItem.classList.toggle('active');
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
             });
         });
+
+        // Search functionality
+        const searchBox = document.getElementById('searchBox');
+        searchBox.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            // Simple search highlighting (in a real app, this would be more sophisticated)
+            if (searchTerm.length > 2) {
+                // Highlight matching FAQ questions
+                document.querySelectorAll('.faq-question').forEach(question => {
+                    const text = question.textContent.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        question.style.backgroundColor = 'rgba(139, 92, 246, 0.1)';
+                    } else {
+                        question.style.backgroundColor = '';
+                    }
+                });
+            } else {
+                // Clear highlights
+                document.querySelectorAll('.faq-question').forEach(question => {
+                    question.style.backgroundColor = '';
+                });
+            }
+        });
+
+        // Smooth scroll to sections
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Add highlight effect
+                section.style.boxShadow = '0 0 0 3px rgba(139, 92, 246, 0.3)';
+                setTimeout(() => {
+                    section.style.boxShadow = '';
+                }, 2000);
+            }
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe cards for animation
+        document.querySelectorAll('.action-card, .category-card, .contact-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced button interactions
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Prevent default for demo purposes
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                }
+                
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(139, 92, 246, 0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                `;
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add ripple animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
